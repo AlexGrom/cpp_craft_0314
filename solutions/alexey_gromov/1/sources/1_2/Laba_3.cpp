@@ -23,12 +23,12 @@ int main(int argc, char* argv[])
 		exit(1);
 	}
 
-    int numbersCount;
+    size_t numbersCount;
 	inputFile>>numbersCount;
 
 	vector<double> rationalNumbers;
 
-	for (int i=0;i<numbersCount;i++)
+	for (size_t i=0;i<numbersCount;i++)
 	{
        double number;
 
@@ -47,6 +47,7 @@ int main(int argc, char* argv[])
 
 	   codesNumbers.push_back(number);
 	}
+	inputFile.close();
 
     ofstream outputFile(BINARY_DIR"/Output.txt", ios::app);
 
@@ -61,7 +62,7 @@ int main(int argc, char* argv[])
 	{
 		string check = "NO";
 
-		for(int j=0;j<rationalNumbers.size();j++)
+		for(size_t j=0;j<rationalNumbers.size();j++)
 		{
            if( (int)(codesNumbers[i]*1E+4) == (int)(rationalNumbers[j]*1E+4))
 		   {
@@ -71,7 +72,6 @@ int main(int argc, char* argv[])
 		outputFile<<check<<endl;
 	}
 	
-	inputFile.close();
 	outputFile.close();
 
 	getch();

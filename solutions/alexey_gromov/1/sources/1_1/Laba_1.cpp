@@ -17,7 +17,7 @@ string prepareString(string& str)
 {
 	char chars[] = " \-";
 
-    for (unsigned int i = 0; i < strlen(chars); ++i)
+    for (size_t i = 0; i < strlen(chars); ++i)
 	{
           str.erase (remove(str.begin(), str.end(), chars[i]), str.end());
 	}
@@ -29,6 +29,7 @@ string prepareString(string& str)
 
 int main(int argc, char* argv[])
 {
+	
 	ifstream   inputFile(BINARY_DIR"/Input.txt");
 	if (!inputFile)
 	{

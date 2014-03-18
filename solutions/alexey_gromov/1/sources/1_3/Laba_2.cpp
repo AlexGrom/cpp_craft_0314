@@ -13,7 +13,7 @@
 
 using namespace std;
 
-void checkEarth(vector<string> &data, int i, int j)
+void checkEarth(vector<string> &data, size_t i, size_t j)
 {
     if	((i>0) && data[i-1][j] == 'o')
 	{
@@ -48,7 +48,7 @@ void checkEarth(vector<string> &data, int i, int j)
 
 int main(int argc, char* argv[])
 {
-	ifstream   inputFile("Input.txt");
+	ifstream   inputFile(BINARY_DIR"/Input.txt");
 	if (!inputFile)
 	{
 		cerr<<"File can not be opened \n"<<endl;
@@ -65,11 +65,13 @@ int main(int argc, char* argv[])
 	  data.push_back(str);
 	}
     
-	int islandsCount = 0;
+	inputFile.close();
 
-	for (int i=0;i<data.size();i++)
+	size_t islandsCount = 0;
+
+	for (size_t i=0;i<data.size();i++)
 	{   
-		for (int j = 0;j<data[i].length();j++)
+		for (size_t j = 0;j<data[i].length();j++)
 		{
 			if (data[i][j] == 'o')
 			{
@@ -79,7 +81,7 @@ int main(int argc, char* argv[])
 		}
 	}
        
-	ofstream outputFile("Output.txt", ios::app);
+	ofstream outputFile(BINARY_DIR"/Output.txt", ios::app);
 
 	if (!outputFile)
 	{
@@ -89,7 +91,6 @@ int main(int argc, char* argv[])
 	}
     outputFile<<islandsCount;
 	
-	inputFile.close();
 	outputFile.close();
 
 	getch();
