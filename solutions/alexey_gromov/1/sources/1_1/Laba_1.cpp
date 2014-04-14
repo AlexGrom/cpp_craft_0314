@@ -30,7 +30,7 @@ string prepareString(string& str)
 int main(int argc, char* argv[])
 {
 	
-	ifstream   inputFile(BINARY_DIR"/Input.txt");
+	ifstream   inputFile(BINARY_DIR"/input.txt");
 	if (!inputFile)
 	{
 		cerr<<"File can not be opened \n"<<endl;
@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 		exit(1);
 	}
 
-	ofstream outputFile(BINARY_DIR"/Output.txt", ios::app);
+	ofstream outputFile(BINARY_DIR"/output.txt", ios::app);
 
 	if (!outputFile)
 	{
